@@ -2820,6 +2820,13 @@
                 a = n(46061),
                 l = n(24455);
 
+            /**
+             * Renders a HoverCard component with customizable open delay.
+             * @param {Object} e - The props object for the HoverCard component.
+             * @param {React.ReactNode} e.children - The child elements to be rendered inside the HoverCard.
+             * @param {number} [e.openDelay=0] - The delay in milliseconds before the HoverCard opens on hover.
+             * @returns {JSX.Element} A rendered HoverCard component.
+             */
             function HoverCard(e) {
                 let {
                     children: t,
@@ -2834,6 +2841,17 @@
                 })
             }
 
+            /**
+             * Renders a styled hover content component with customizable positioning.
+             * @param {Object} e - The props object for the component.
+             * @param {React.ReactNode} e.children - The content to be displayed in the hover component.
+             * @param {Object} [e.css] - Custom CSS styles to be applied to the component.
+             * @param {number} [e.sideOffset=5] - The offset from the trigger element (in pixels).
+             * @param {string} [e.side="bottom"] - The preferred side of the trigger to render the content ("top", "right", "bottom", or "left").
+             * @param {boolean} [e.avoidCollisions=true] - Whether to automatically adjust position to avoid collisions.
+             * @param {...Object} e.o - Additional props to be passed to the underlying component.
+             * @returns {JSX.Element} A styled hover content component wrapped in a Fragment.
+             */
             function StyledHoverContent(e) {
                 let {
                     children: t,
@@ -2871,6 +2889,17 @@
                         }
                     }
                 });
+            /**
+             * Creates and returns a custom content component for the HoverCard.
+             * This function is assigned to HoverCard.Content and wraps the provided
+             * children with additional styling and animation capabilities.
+             *
+             * @param {Object} e - The props object for the content component
+             * @param {React.ReactNode} e.children - The child elements to be rendered inside the content
+             * @param {boolean} e.animate - Determines if the content should be animated
+             * @param {Object} e...i - Additional props to be spread onto the underlying component
+             * @returns {JSX.Element} A styled and potentially animated content component
+             */
             HoverCard.StyledContent = StyledHoverContent, HoverCard.Content = function(e) {
                 let {
                     children: t,
@@ -2954,6 +2983,12 @@
                 };
             r.c, r.c
         },
+        /**
+         * Creates a Tabs component with customizable size and content
+         * @param {Object} e - The props object for the Tabs component
+         * @param {string} [e.size] - The size variant for the tabs ('xl', 'lg', 'md', 'sm')
+         * @returns {React.Element} A Tabs component with the specified size and content
+         */
         81992: function(e, t, n) {
             "use strict";
             n.d(t, {
@@ -3105,12 +3140,25 @@
                 i = n(97352);
             let o = i.createContext(null);
 
+            /**
+             * Retrieves the Tooltip context from the current React component tree.
+             * @throws {Error} If called outside of a Tooltip component.
+             * @returns {Object} The Tooltip context object.
+             */
             function useTooltipContext() {
                 let e = i.useContext(o);
                 if (!e) throw Error("Tooltip compound components cannot be rendered outside the Tooltip component");
                 return e
             }
 
+            /**
+             * Provides a context for tooltip functionality
+             * @param {Object} e - The props object
+             * @param {React.ReactNode} e.children - The child components to be wrapped
+             * @param {boolean} e.openOnClick - Determines if the tooltip should open on click
+             * @param {...Object} e.a - Additional props to be passed to the context
+             * @returns {JSX.Element} A Provider component wrapping the children with tooltip context
+             */
             function TooltipContextProvider(e) {
                 let {
                     children: t,
@@ -3128,6 +3176,20 @@
                 })
             }
         },
+        /**
+         * Renders a tooltip component with customizable behavior and styling.
+         * @param {Object} props - The properties for the Tooltip component.
+         * @param {React.ReactNode} props.children - The content to be wrapped by the tooltip.
+         * @param {boolean} [props.openOnClick] - Whether the tooltip should open on click instead of hover.
+         * @param {number} [props.delayCloseMs] - The delay in milliseconds before closing the tooltip.
+         * @param {number} [props.delayDuration=0] - The delay duration for opening the tooltip.
+         * @param {string} [props.size="xs"] - The size of the tooltip content ("xs" or other).
+         * @param {number} [props.sideOffset=6] - The offset from the side of the trigger element.
+         * @param {string} [props.side="top"] - The preferred side for the tooltip to appear.
+         * @param {boolean} [props.avoidCollisions=true] - Whether to avoid collisions with the viewport.
+         * @param {string} [props.className] - Additional CSS classes for styling.
+         * @returns {JSX.Element} A Tooltip component that wraps the given children.
+         */
         34524: function(e, t, n) {
             "use strict";
             n.r(t), n.d(t, {
@@ -3255,6 +3317,15 @@
                 }, []), e
             }
         },
+        /**
+         * Renders a user hover card component with customizable trigger and content.
+         * @param {Object} props - The component props.
+         * @param {React.ReactNode} props.trigger - The element that triggers the hover card.
+         * @param {React.ReactNode} props.userHoverCardContent - The content to be displayed in the hover card.
+         * @param {boolean} [props.triggerAsChild=false] - Whether to render the trigger as a child element.
+         * @param {string} [props.align] - The alignment of the hover card relative to the trigger.
+         * @returns {React.ReactElement} A React element representing the UserHoverCard component.
+         */
         25347: function(e, t, n) {
             "use strict";
             n.d(t, {
@@ -3322,6 +3393,15 @@
                 a = n(54668),
                 l = n(22181),
                 s = n(3928);
+            /**
+             * Renders a modal component for collecting a release.
+             * @param {Object} e - The props object containing configuration for the modal.
+             * @param {string} e.releaseId - The ID of the release to be collected.
+             * @param {string} e.mintReferral - The referral code for minting.
+             * @param {string} e.collectButtonSource - The source of the collect button.
+             * @param {boolean} e.TEMPORARY_showCustomPrice - Flag to show custom price (temporary feature).
+             * @returns {JSX.Element} A modal component for collecting the release, or a loading placeholder if data is not available.
+             */
             let CollectModal = e => {
                 let {
                     releaseId: t,
@@ -3362,6 +3442,12 @@
                 })
             }
         },
+        /**
+         * Renders a modal displaying a list of collectors who have minted editions of a specific release.
+         * @param {Object} e - The props object containing the release ID.
+         * @param {string} e.releaseId - The ID of the release for which to display collectors.
+         * @returns {JSX.Element} A UserList component displaying collector information.
+         */
         92434: function(e, t, n) {
             "use strict";
             n.d(t, {
@@ -3538,6 +3624,11 @@
                 o = n(42529),
                 a = n(85846),
                 l = n(22546);
+            /**
+             * Creates a provider selector function based on different chain IDs.
+             * @returns {Object} An object containing the provider selector function.
+             * @throws {Error} If an invalid chainId is provided.
+             */
             let s = (0, l.f)(function() {
                     let e = (0, r.t_)({
                             chainId: a.K_.eth
@@ -3571,6 +3662,36 @@
                 d = s.Context,
                 u = s.Provider
         },
+        /**
+         * Provides a context for managing and accessing mint referral information.
+         * @param {Object} props - The component props.
+         * @param {React.ReactNode} props.children - The child components to be wrapped by the provider.
+         * @returns {React.ReactElement} A Provider component that makes the referral context available to its children.
+         */
+        function MintReferralProvider(props) {
+          // Implementation details...
+        }
+        
+        /**
+         * Custom hook to access the mint referral context.
+         * @returns {Object} An object containing the referral state and a function to update it.
+         * @property {Object|null} referral - The current referral object or null if not set.
+         * @property {Function} setReferral - A function to update the referral state.
+         */
+        function useMintReferral() {
+          // Implementation details...
+        }
+        
+        /**
+         * Enumeration of mint referral types.
+         * @enum {string}
+         */
+        const MintReferralType = {
+          /** Represents a playlist referral type */
+          Playlist: "playlist",
+          /** Represents a post referral type */
+          Post: "post"
+        };
         89012: function(e, t, n) {
             "use strict";
             n.r(t), n.d(t, {
@@ -3618,6 +3739,19 @@
                 return !e
             }
         },
+        /**
+         * Creates and returns a function for logging errors and handling specific error scenarios.
+         * @returns {Function} A function that takes an error object and optional configuration parameters to log errors, display toasts, and manage modal states.
+         *   The returned function accepts an object with the following properties:
+         *   @param {Error|string} error - The error to be logged and handled.
+         *   @param {string|Object} [toast] - Toast message or configuration object for displaying error feedback.
+         *   @param {boolean} [capture=true] - Whether to capture the error for reporting.
+         *   @param {boolean} [closeProcessingModal=false] - Whether to close processing-related modals.
+         *   @param {Object} [indexedTags] - Tags to be added to the error report.
+         *   @param {Object} [unindexedExtra] - Additional data to be added to the error report.
+         *   @param {number} [toastDuration=5000] - Duration for which the toast should be displayed.
+         *   @param {string} [level] - Severity level of the error for reporting.
+         */
         14531: function(e, t, n) {
             "use strict";
             n.d(t, {
@@ -3706,6 +3840,13 @@
                 a = n(3928),
                 l = n(85846);
 
+            /**
+             * Custom hook for subscribing to and processing release updates.
+             * @param {Object} e - The input object containing release information.
+             * @param {Object} e.release - The release object to subscribe to.
+             * @returns {Object} An object containing the processed release data and query information.
+             *                   The data property contains the merged release information with subscription updates.
+             */
             function useSubscribeRelease(e) {
                 var t;
                 let {
@@ -3739,6 +3880,14 @@
                 }
             }
 
+            /**
+             * Subscribes to release collector data based on provided parameters and gate status.
+             * @param {Object} e - The configuration object for the subscription.
+             * @param {string} e.releaseId - The ID of the release to subscribe to.
+             * @param {Function} e.onData - Callback function to handle received data.
+             * @param {boolean} e.enabled - Flag to enable or disable the subscription.
+             * @returns {Object} The result of the subscription query execution.
+             */
             function useSubscribeReleaseCollector(e) {
                 let {
                     releaseId: t,
@@ -3757,6 +3906,23 @@
                 })
             }
         },
+        /**
+         * A custom hook for creating a timer with various controls and time calculations.
+         * @param {Object} options - Configuration options for the timer
+         * @param {number|Date} options.expiryTimestamp - The timestamp or Date object representing when the timer should expire
+         * @param {Function} [options.onExpire] - Optional callback function to be called when the timer expires
+         * @param {boolean} [options.autoStart=true] - Whether the timer should start automatically (default: true)
+         * @returns {Object} An object containing timer state and control functions:
+         *   - {number} days - Number of days remaining
+         *   - {number} hours - Number of hours remaining
+         *   - {number} minutes - Number of minutes remaining
+         *   - {number} seconds - Number of seconds remaining
+         *   - {Function} start - Function to start the timer
+         *   - {Function} pause - Function to pause the timer
+         *   - {Function} resume - Function to resume the timer
+         *   - {Function} restart - Function to restart the timer with a new expiry timestamp
+         *   - {boolean} isRunning - Whether the timer is currently running
+         */
         3141: function(e, t, n) {
             "use strict";
             n.d(t, {
@@ -3851,6 +4017,12 @@
             var r = n(97352),
                 i = n(22248);
 
+            /**
+             * Custom React hook for tracking window size
+             * @returns {Object} An object containing the current window width and height
+             * @property {number} width - The current width of the window
+             * @property {number} height - The current height of the window
+             */
             function useWindowSize() {
                 let [e, t] = r.useState({
                     width: window.innerWidth,
@@ -4270,6 +4442,16 @@
             var r = n(76348);
             let i = "soundxyz-sdk";
 
+            /**
+             * Validates and adjusts gas estimation for a transaction
+             * @param {Object} e - The input object containing transaction details
+             * @param {number} e.estimation - The initial gas estimation
+             * @param {string} e.editionAddress - The address of the edition
+             * @param {number} e.chainId - The ID of the blockchain network
+             * @param {number} e.quantity - The quantity of the transaction
+             * @param {Object} e.loggingExtra - Additional logging information
+             * @returns {number} The validated or adjusted gas estimation
+             */
             function expectNormalGas(e) {
                 let {
                     estimation: t,
@@ -4291,6 +4473,38 @@
                 }), 500000 n) : t
             }
         },
+        /**
+         * Determines the chain object based on the given chain ID
+         * @param {number} e - The chain ID to be mapped to a chain object
+         * @returns {Object} The corresponding chain object for the given ID
+         * @throws {Error} If an unsupported chain ID is provided
+         */
+        
+        /**
+         * Checks if the user has enough balance for a gas estimate
+         * @param {Object} e - An object containing necessary parameters
+         * @param {bigint} e.gasEstimate - The estimated gas cost
+         * @param {string} e.userAddress - The address of the user
+         * @param {Object} e.publicClient - The public client object for blockchain interactions
+         * @param {bigint} [e.extraValue] - Optional additional value to consider
+         * @returns {Promise<boolean>} True if the user has enough balance, false otherwise
+         */
+        
+        /**
+         * Checks if the user has enough funds for an L2 upload
+         * @param {Object} e - An object containing necessary parameters
+         * @param {string} e.userAddress - The address of the user
+         * @param {Object} e.publicClient - The public client object for blockchain interactions
+         * @returns {Promise<boolean>} True if the user has enough funds for L2 upload, false otherwise
+         */
+        
+        /**
+         * Checks if a given address is a deployed contract address
+         * @param {Object} e - An object containing necessary parameters
+         * @param {string} e.contractAddress - The address to check
+         * @param {Object} e.provider - The provider object for blockchain interactions
+         * @returns {Promise<boolean>} True if the address is a deployed contract, false otherwise
+         */
         77348: function(e, t, n) {
             "use strict";
             n.d(t, {
