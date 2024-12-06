@@ -2256,27 +2256,29 @@
             });
             var f = l(51714)
         },
-        36545: function(s, c, l) {
+        const RE2 = require('re2');
+        
+        function(s, c, l) {
             "use strict";
-
+        
             function matchRegexProtocol(s, c) {
                 let l = function(s) {
-                    let c = s.match(RegExp(/^\w+:/, "gi"));
+                    let c = s.match(new RE2(/^\w+:/, "gi"));
                     if (c && c.length) return c[0]
                 }(s);
-                return void 0 !== l && new RegExp(c).test(l)
+                return void 0 !== l && new RE2(c).test(l)
             }
-
+        
             function isHttpUrl(s) {
                 return matchRegexProtocol(s, "^https?:")
             }
-
+        
             function isWsUrl(s) {
                 return matchRegexProtocol(s, "^wss?:")
             }
-
+        
             function isLocalhostUrl(s) {
-                return RegExp("wss?://localhost(:d{2,5})?").test(s)
+                return new RE2("wss?://localhost(:d{2,5})?").test(s)
             }
             l.d(c, {
                 JF: function() {
@@ -2558,11 +2560,7 @@
                 }, []), P.createElement("div", null, P.createElement("p", {
                     id: tt,
                     className: "walletconnect-qrcode__text"
-                }, s.text.scan_qrcode_with_wallet), P.createElement("div", {
-                    dangerouslySetInnerHTML: {
-                        __html: R
-                    }
-                }), P.createElement("div", {
+                }, s.text.scan_qrcode_with_wallet), P.createElement("div", null, R), P.createElement("div", {
                     className: "walletconnect-modal__footer"
                 }, P.createElement("a", {
                     onClick: function() {
