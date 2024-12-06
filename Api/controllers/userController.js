@@ -326,10 +326,11 @@ const deleteUserController = async (req, res, next) => {
 const searchUserController = async (req, res, next) => {
   const { query } = req.params;
   try {
+    const safeQuery = escapeUserInput(query); // Strip any non-alphanumeric characters
     const users = await User.find({
       $or: [
-        { username: { $regex: new RegExp(query, "i") } },
-        { fullName: { $regex: new RegExp(query, "i") } },
+        { username: { $regex: new RegExp('^'+safeQuery+'.*', "i") } },
+        { fullName: { $regex: new RegExp('^'+safeQuery+'.*', "i") } },
       ],
     });
 
@@ -338,6 +339,10 @@ const searchUserController = async (req, res, next) => {
     next(error);
   }
 };
+
+function escapeUserInput(input) {
+  return input.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // Escapes special regex characters
+}
 
 const generateFileUrl = (filename) => {
   return process.env.URL + `/uploads/${filename}`;

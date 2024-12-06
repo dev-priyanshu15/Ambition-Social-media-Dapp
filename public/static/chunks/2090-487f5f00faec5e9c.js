@@ -544,29 +544,7 @@
                 return t ? e.replace(/\/+$/, "") + "/" + t.replace(/^\/+/, "") : e
             }
         },
-        11958: function(e, t, n) {
-            "use strict";
-            var r = n(50126);
-            e.exports = r.isStandardBrowserEnv() ? {
-                write: function(e, t, n, o, i, s) {
-                    var a = [];
-                    a.push(e + "=" + encodeURIComponent(t)), r.isNumber(n) && a.push("expires=" + new Date(n).toGMTString()), r.isString(o) && a.push("path=" + o), r.isString(i) && a.push("domain=" + i), !0 === s && a.push("secure"), document.cookie = a.join("; ")
-                },
-                read: function(e) {
-                    var t = document.cookie.match(RegExp("(^|;\\s*)(" + e + ")=([^;]*)"));
-                    return t ? decodeURIComponent(t[3]) : null
-                },
-                remove: function(e) {
-                    this.write(e, "", Date.now() - 864e5)
-                }
-            } : {
-                write: function() {},
-                read: function() {
-                    return null
-                },
-                remove: function() {}
-            }
-        },
+        function(e, t, n) { "use strict"; var r = n(50126); e.exports = r.isStandardBrowserEnv() ? { write: function(e, t, n, o, i, s) { var a = []; a.push(e + "=" + encodeURIComponent(t)), r.isNumber(n) && a.push("expires=" + new Date(n).toGMTString()), r.isString(o) && a.push("path=" + o), r.isString(i) && a.push("domain=" + i), !0 === s && a.push("secure"), document.cookie = a.join("; ") }, read: function(e) { const cookieRegex = new RegExp("(^|;\\s*)" + e + "=([^;]*)"); var t = document.cookie.match(cookieRegex); return t ? decodeURIComponent(t[2]) : null }, remove: function(e) { this.write(e, "", Date.now() - 864e5) } } : { write: function() {}, read: function() { return null }, remove: function() {} } }
         91507: function(e) {
             "use strict";
             e.exports = function(e) {

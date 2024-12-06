@@ -4070,81 +4070,17 @@
                 })
             }
         },
-        18389: function(e, t, a) {
-            "use strict";
-            a.d(t, {
-                i: function() {
-                    return useResourceInPost
-                }
-            });
-            var s = a(97352),
-                n = a(78608),
-                l = a(19791),
-                r = a(82443),
-                i = a(25828),
-                o = a(85846),
-                d = a(12849),
-                c = a(36331);
-
-            function useResourceInPost(e) {
-                let {
-                    config: t,
-                    isLoading: a
-                } = (0, n.useConfig)(o.Zh.POSTING_URL_WHITELIST), u = t ? t.getValue(r.Gv) : null, m = (0, i.F)(e), p = d.Z.generateTextForNode(null == m ? void 0 : m.root), x = (0, s.useMemo)(() => {
-                    var e;
-                    let t = [...p.matchAll(RegExp(o.Wh, "g"))],
-                        s = a ? [] : null !== (e = null == u ? void 0 : u.whitelist) && void 0 !== e ? e : [];
-                    if (null != t) return (0, l.CC)(t, e => (0, c.i)(e[0], s) && e[0])
-                }, [p, null == u ? void 0 : u.whitelist, a]), h = (0, s.useMemo)(() => {
-                    if (x) return function(e) {
-                        let t;
-                        try {
-                            t = new URL(e)
-                        } catch (e) {
-                            return
-                        }
-                        if ("open.spotify.com" === t.hostname) {
-                            let e = function(e) {
-                                let [t, a, s, n] = e.pathname.split("/");
-                                return "playlist" === a || "playlist" === s ? `spotify:playlist:${null!=n?n:s}` : "album" === a || "album" === s ? `spotify:album:${null!=n?n:s}` : "track" === a || "track" === s ? `spotify:track:${null!=n?n:s}` : "episode" === a || "episode" === s ? `spotify:episode:${null!=n?n:s}` : "artist" === a || "artist" === s ? `spotify:artist:${null!=n?n:s}` : "show" === a || "show" === s ? `spotify:show:${null!=n?n:s}` : null
-                            }(t);
-                            if (!e) return;
-                            return {
-                                uri: e,
-                                source: "spotify"
-                            }
-                        }
-                    }(x)
-                }, [x]), f = (0, s.useMemo)(() => {
-                    if (!h && x) return function(e) {
-                        let t = e.toLowerCase().match(/sound\.xyz\/([^\/]+)\/([^\/?#]+)/i);
-                        if (!t) return null;
-                        let a = t[1],
-                            s = t[2];
-                        return a && s && "playlist" !== a ? {
-                            soundHandle: a,
-                            releaseSlug: s
-                        } : null
-                    }(x)
-                }, [h, x]), v = (0, s.useMemo)(() => {
-                    if (!h && x) return function(e) {
-                        let t = e.toLowerCase().match(/sound\.xyz\/playlist\/([^\/?#]+)/i);
-                        if (!t || !t[1]) return null;
-                        let a = t[1];
-                        return {
-                            playlistId: a
-                        }
-                    }(x)
-                }, [h, x]);
-                return {
-                    link: x,
-                    loading: a,
-                    embed: h,
-                    release: f,
-                    playlist: v
-                }
-            }
-        },
+        function(e, t, a) { "use strict"; a.d(t, { i: function() { return useResourceInPost } }); var s = a(97352), n = a(78608), l = a(19791), r = a(82443), i = a(25828), o = a(85846), d = a(12849), c = a(36331);
+        
+          function useResourceInPost(e) { let { config: t, isLoading: a } = (0,n.useConfig)(o.Zh.POSTING_URL_WHITELIST), u = t ? t.getValue(r.Gv) : null, m = (0,i.F)(e), p = d.Z.generateTextForNode(null == m ? void 0 : m.root), x = (0, s.useMemo)(() => {
+        var e; let t = [...p.matchAll(/hardcoded-pattern-here/g)], s = a ? [] : null !== (e = null == u ? void 0 : u.whitelist) && void 0 !== e ? e : [];
+        
+        if (null != t) return (0, l.CC)(t, e => (0, c.i)(e[0], s) && e[0])
+        }, [p, null == u ? void 0 : u.whitelist, a]), h = (0, s.useMemo)(() => { if (x) return function(e) { let t; try { t = new URL(e) } catch (e) { return } if ("open.spotify.com" === t.hostname) { let e = function(e) { let [t, a, s, n] = e.pathname.split("/"); return "playlist" === a || "playlist" === s ? `spotify:playlist:${null!=n?n:s}` : "album" === a || "album" === s ? `spotify:album:${null!=n?n:s}` : "track" === a || "track" === s ? `spotify:track:${null!=n?n:s}` : "episode" === a || "episode" === s ? `spotify:episode:${null!=n?n:s}` : "artist" === a || "artist" === s ? `spotify:artist:${null!=n?n:s}` : "show" === a || "show" === s ? `spotify:show:${null!=n?n:s}` : null }(t); if (!e) return;
+        return { uri: e, source: "spotify" } } }(x)
+        }, [x]), f = (0, s.useMemo)(() => { if (!h && x) return function(e) { let t = e.toLowerCase().match(/sound\.xyz\/([^\/]+)\/([^\/?#]+)/i); if (!t) return null; let a = t[1], s = t[2]; return a && s && "playlist" !== a ? { soundHandle: a, releaseSlug: s } : null }(x)
+        }, [h, x]), v = (0, s.useMemo)(() => { if (!h && x) return function(e) { let t = e.toLowerCase().match(/sound\.xyz\/playlist\/([^\/?#]+)/i); if (!t || !t[1]) return null; let a = t[1]; return { playlistId: a } }(x)
+        }, [h, x]); return { link: x, loading: a, embed: h, release: f, playlist: v } } },
         37925: function(e, t, a) {
             "use strict";
             a.d(t, {
@@ -14541,9 +14477,7 @@
                         }), (0, s.jsx)("div", {
                             className: "m-0 p-0",
                             ref: P,
-                            dangerouslySetInnerHTML: {
-                                __html: A
-                            }
+                            children: A
                         }), (0, s.jsx)(r.UQ, {
                             type: "single",
                             defaultValue: "",
