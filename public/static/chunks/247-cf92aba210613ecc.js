@@ -463,11 +463,7 @@
                         __scopeSelect: n,
                         ...o
                     } = e, a = z(J, n), c = G(J, n), d = (0, u.e)(t, a.onViewportChange), s = (0, r.useRef)(0);
-                    return (0, r.createElement)(r.Fragment, null, (0, r.createElement)("style", {
-                        dangerouslySetInnerHTML: {
-                            __html: "[data-radix-select-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-select-viewport]::-webkit-scrollbar{display:none}"
-                        }
-                    }), (0, r.createElement)(D.Slot, {
+                    return (0, r.createElement)(r.Fragment, null, (0, r.createElement)("style", null, "[data-radix-select-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-select-viewport]::-webkit-scrollbar{display:none}"), (0, r.createElement)(D.Slot,
                         scope: n
                     }, (0, r.createElement)(w.WV.div, (0, l.Z)({
                         "data-radix-select-viewport": "",

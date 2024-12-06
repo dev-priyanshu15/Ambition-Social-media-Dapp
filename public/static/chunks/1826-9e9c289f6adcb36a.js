@@ -2513,9 +2513,7 @@
                 }, {
                     base: "z",
                     letters: "zⓩｚźẑżžẓẕƶȥɀⱬꝣ"
-                }], tt = RegExp("[" + te.map(function(n) {
-                    return n.letters
-                }).join("") + "]", "g"), ti = {}, ta = 0; ta < te.length; ta++)
+                }], tt = /[a-zA-Z]/g, ti = {}, ta = 0; ta < te.length; ta++)
                 for (var ts = te[ta], tu = 0; tu < ts.letters.length; tu++) ti[ts.letters[tu]] = ts.base;
             var zo = function(n) {
                     return n.replace(tt, function(n) {
