@@ -25,6 +25,14 @@
                 })
             })
         },
+        /**
+         * Renders a set of animated loading bars
+         * @param {Object} props - The component props
+         * @param {string} [props.height] - The height of the loading bars container
+         * @param {string} [props.className] - Additional CSS class for the container
+         * @param {string} [props.barClassName] - Additional CSS class for individual bars
+         * @returns {JSX.Element} A div containing five animated loading bars
+         */
         98910: function(n, e, a) {
             "use strict";
             a.d(e, {
